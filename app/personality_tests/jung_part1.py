@@ -26,3 +26,6 @@ def get_question_score_map_function(question:str):
 # If SN > 24, personality = intuitive (N), else sensing (S).
 # If FT > 24, personality = thinking (T), else feeling (F).
 # If JP > 24, personality = perceiving (P), else judging (J).
+
+def append_final_test_score(df,JUNG,column_list):
+    pass

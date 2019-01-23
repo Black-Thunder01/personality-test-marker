@@ -52,3 +52,8 @@ def get_question_score_map_function(question:str):
     else:
         raise Exception(f"Question number {num} not recognised ({question})")
 
+
+def append_final_test_score(df,DGS,column_list):
+    """once all the answers have individual scores, we find the average"""
+    assert len(column_list) == 10
+    df[DGS] = df[column_list].mean(axis=1)

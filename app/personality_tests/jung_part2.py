@@ -6,3 +6,7 @@ def get_question_score_map_function(question:str):
     def mapper(student_answer):
         return student_answer
     return mapper # TODO
+
+
+def append_final_test_score(df,JUNG,column_list):
+    pass

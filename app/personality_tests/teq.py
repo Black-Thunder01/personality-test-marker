@@ -56,5 +56,6 @@ def _forward_mapper(student_answer):
         }[student_answer.lower()] 
 
 
-def get_final_test_score():
+def append_final_test_score(df,TEQ,column_list):
     """once all the answers have individual scores, we add them up"""
+    df[TEQ] = df[column_list].sum(axis=1)

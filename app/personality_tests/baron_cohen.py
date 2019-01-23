@@ -48,3 +48,5 @@ def get_question_score_map_function(question:str):
 
 
 
+def append_final_test_score(df,BARON_COHEN,column_list):
+    df[BARON_COHEN] = df[column_list].sum(axis=1)

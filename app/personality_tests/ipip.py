@@ -108,3 +108,10 @@ def get_question_score_map_function(question:str):
         return mapper 
     
     
+def append_final_test_score(df,IPIP,column_list):
+    for category_id, category_name in categories.items():
+        def sum_category(row):
+            return sum([int(value[1]) for value in row if int(value[0])==int(category_id)])
+        df[f"{IPIP}_{category_name}"] = df[column_list].apply(sum_category,axis=1)
+
+

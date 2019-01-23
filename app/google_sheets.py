@@ -7,15 +7,16 @@ import numpy as np
 import json
 # from functools import reduce
 
-
-
 def authorize():
-    print("authorize start")
     #insert name of  json service account key
     SCOPE = ['https://spreadsheets.google.com/feeds',
             'https://www.googleapis.com/auth/drive']
-    SECRETS_FILE = os.getenv("GOOGLE_SHEETS_CREDENTIALS_FILE",
-        "google_secret_key_code@umuzi.org.json")
+
+    
+    SECRETS_FILE = os.getenv("GOOGLE_SHEETS_CREDENTIALS_FILE")
+
+    if not SECRETS_FILE:
+        raise Exception("Missing environmental variable: GOOGLE_SHEETS_CREDENTIALS_FILE")
 
 
     # Based on docs here - http://gspread.readthedocs.org/en/latest/oauth2.html
@@ -26,7 +27,6 @@ def authorize():
     credentials = SignedJwtAssertionCredentials(json_key['client_email'],
                                             json_key['private_key'], SCOPE)
     ret = gspread.authorize(credentials)
-    print("authorize end")
     return ret
 
 def fetch_sheet(sheet: str):
