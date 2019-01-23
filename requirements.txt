@@ -1,0 +1,13 @@
+pandas==0.23.4
+jupyter==1.0.0
+numpy==1.16.0
+Click==7.0
+gspread==3.1.0
+
+pyOpenSSL==19.0.0
+
+# argparse
+oauth2client==1.5.2
+# pandas
+# numpy
+# functools

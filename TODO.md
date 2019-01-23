@@ -1,0 +1,2 @@
+- make sure ipip scoring ok
+- jung answers not scored. see jung_part_1.py and jung_part2.py
