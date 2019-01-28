@@ -255,7 +255,7 @@ Once numbers are assigned for all of the items in the scale,  sum all the values
 **Changes to wording in the Umuzi version:**
 "19. I seldom feel blue" to "19. I seldom feel blue (down)"
 "27.I have a soft heart" to "I have a soft (kind) heart"
-"48. I am exacting (demanding) in my work" 
+"48. I am exacting (demanding) in my work"
 "49. I often feel blue" to "49. I often feel blue (down)"
 
 **Source:**
@@ -394,3 +394,51 @@ Part 1 instruction were ambiguous resulting in inconsistently reversed item resp
 ## NOTE: fixed these mistakes and spelling errors in C13 (Nov 2018) update of this form
 
 Added: Department, ID
+
+
+## Questionnaire Description Cut-offs
+###Toronto Empathy Questionnaire (TEQ)
+very high: >= 63
+above average: >= 55
+below average: <= 39
+very low: <31
+
+###Brief Resilience Scale (BRS)
+Resilient: >= 5
+Low resilience / risk for stress and anxiety: < 3
+
+###Duckworth Grit Scale (DGS)
+high grit: = 5
+low grit: <= 2
+
+##Baron-Cohen Empathising-systemising short form
+Men:
+Above average: >= 17
+Below average: <= 9
+
+Women:
+Above average: >= 13
+Below average: <= 4
+
+###IPIP Big-Five Factor Markers
+neuroticism:
+  high:
+  low:
+extraversion:
+  high:
+  low:  
+Agreeableness:
+  high:
+  low:
+Conscientiousness:
+  high:
+  low:
+Intellect:
+  high:
+  low:
+
+If neuroticism is high, low conscientiousness, low
+extraversion and low agreeableness, flag "high risk"
+
+###Open Extended Jungian Type Scales 1.2
+No cut-off. Combine the four letters to get the personality type (e.g. ENTP)
