@@ -1,10 +1,4 @@
-# Men:
-# Above average: >= 17
-# Below average: <= 9
 
-# Women:
-# Above average: >= 13
-# Below average: <= 4
 
 def _get_question_number(question:str) -> int:
     questions = {
@@ -58,3 +52,37 @@ def get_question_score_map_function(question:str):
 
 def append_final_test_score(df,BARON_COHEN,column_list):
     df[BARON_COHEN] = df[column_list].sum(axis=1)
+
+
+
+def _human_friendly_map_function_male(final_score:int) -> str:
+    if final_score >= 17:
+        return "above average"
+    if final_score <= 9:
+        return "below average"
+    return "average"
+    
+
+def _human_friendly_map_function_female(final_score:int) -> str:
+    if final_score >= 13:
+        return "above average"
+    if final_score <= 4:
+        return "below average"
+    return "average"
+
+
+def append_human_friendly_test_score(df,BARON_COHEN,column_list):
+    """
+    Men:
+    Above average: >= 17
+    Below average: <= 9
+    
+    Women:
+    Above average: >= 13
+    Below average: <= 4
+    """
+    # TODO: derive gender from somewhere else
+    df[f"human_{BARON_COHEN}_if_male"] = df[BARON_COHEN].map(_human_friendly_map_function_male)
+    df[f"human_{BARON_COHEN}_if_female"] = df[BARON_COHEN].map(_human_friendly_map_function_female)
+
+

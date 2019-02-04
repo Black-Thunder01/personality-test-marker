@@ -1,6 +1,5 @@
 
-# high grit: = 5
-# low grit: <= 2
+
 
 
 def _forward_mapper(student_answer):
@@ -61,3 +60,22 @@ def append_final_test_score(df,DGS,column_list):
     """once all the answers have individual scores, we find the average"""
     assert len(column_list) == 10
     df[DGS] = df[column_list].mean(axis=1)
+
+
+
+
+def _human_friendly_map_function(final_score:int) -> str:
+    if final_score == 5:
+        return "high grit"
+    if final_score <= 2:
+        return "low grit"
+    return "medium grit"
+
+
+def append_human_friendly_test_score(df,DGS,column_list):
+    """
+    high grit: = 5
+    low grit: <= 2
+    """
+    df[f"human_{DGS}"] = df[DGS].map(_human_friendly_map_function)
+

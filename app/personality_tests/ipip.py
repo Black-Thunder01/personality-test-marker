@@ -1,12 +1,22 @@
 
-# def append_human_friendly_score():
-#     score > mean+std_deviation/2 high
-#     score < mean+std_deviation/2 low
-#     else:
-#         acerage
+
+LOW = "low"
+HIGH = "high"
 
 
+EXTRAVERSION = "Extraversion"
+AGREEABLENESS ="Agreeableness"
+CONSCIENTIOUSNESS = "Conscientiousness"
+NEUROTICISM = "Emotional Stability/Neuroticism"
+IMAGINATION = "Intellect/Imagination / openness to experiences"
 
+categories = {
+    1: EXTRAVERSION, 
+    2: AGREEABLENESS,
+    3: CONSCIENTIOUSNESS,
+    4: NEUROTICISM,
+    5: IMAGINATION
+}
 
 
 def _get_question_category_and_direction(question: str):
@@ -72,14 +82,6 @@ def _get_question_category_and_direction(question: str):
     raise Exception(f"could not find category for:\n\t{question}")
 
 
-categories = {
-    1: "Extraversion", 
-    2: "Agreeableness",
-    3: "Conscientiousness",
-    4: "Emotional Stability/Neuroticism",
-    5: "Intellect/Imagination / openness to experiences"
-}
-
 
 def _calculate_forward_score(student_answer):
     # @michelle. The README and the g sheet dont use the same scale  
@@ -125,3 +127,50 @@ def append_final_test_score(df,IPIP,column_list):
         df[f"{IPIP}_{category_name}"] = df[column_list].apply(sum_category,axis=1)
 
 
+
+
+
+
+
+
+
+def _human_friendly_map_function(final_score:int,mean:float,std_deviation:float) -> str:
+    
+    if final_score > mean + std_deviation/2:
+        return HIGH
+    if final_score < mean - std_deviation/2:
+        return LOW
+    return "medium"
+
+
+def append_human_friendly_test_score(df,IPIP,column_list):
+    """
+    score > mean + std_deviation/2 high
+    score < mean - std_deviation/2 low
+    
+    If neuroticism is high, low conscientiousness, low extraversion and low agreeableness, flag "high risk"
+    """
+    # TODO: take gender into account
+    for category_name in categories.values():
+        col_name = f"{IPIP}_{category_name}"
+        mean = df[col_name].mean()
+        std = df[col_name].std()
+        df[f"human_{col_name}"] = df[col_name].map(lambda final_score: _human_friendly_map_function(final_score,mean=mean,std_deviation=std))
+
+
+    
+    # now figure out who is "high risk"
+
+    def check_high_risk(row):
+ 
+        if row[f"{IPIP}_{NEUROTICISM}"] != HIGH:
+            return ""
+        if row[f"{IPIP}_{CONSCIENTIOUSNESS}"] != LOW:
+            return ""
+        if row[f"{IPIP}_{EXTRAVERSION}"] != LOW:
+            return ""
+        if row[f"{IPIP}_{AGREEABLENESS}"] != LOW:
+            return ""
+        return "HIGH RISK"
+
+    df[f"{IPIP}_HIGH_RISK"] = df.apply(check_high_risk,axis=1)

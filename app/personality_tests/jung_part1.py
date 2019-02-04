@@ -57,3 +57,7 @@ def append_final_test_score(df,JUNG,column_list):
 # uncomfortable with emotions |  values emotions,
 # Likes to perform in front of other people | Avoids public speaking,
 # Likes to know ""who?"", ""what?"", ""when?"" | Likes to know ""why?"",
+
+
+def append_human_friendly_test_score(df,IPIP,column_list):
+    pass
