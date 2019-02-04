@@ -1,4 +1,8 @@
 
+# high grit: = 5
+# low grit: <= 2
+
+
 def _forward_mapper(student_answer):
     return {
         'very much like me'     : 5, 

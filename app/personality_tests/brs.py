@@ -1,3 +1,6 @@
+# Resilient: >= 5
+# Low resilience / risk for stress and anxiety: < 3
+
 def _mapper(student_answer:str):
     return {
         "strongly disagree" : 1,

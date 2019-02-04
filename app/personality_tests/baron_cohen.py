@@ -1,3 +1,11 @@
+# Men:
+# Above average: >= 17
+# Below average: <= 9
+
+# Women:
+# Above average: >= 13
+# Below average: <= 4
+
 def _get_question_number(question:str) -> int:
     questions = {
         1 : "I find it difficult to read and understand maps",

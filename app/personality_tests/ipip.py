@@ -1,4 +1,14 @@
 
+# def append_human_friendly_score():
+#     score > mean+std_deviation/2 high
+#     score < mean+std_deviation/2 low
+#     else:
+#         acerage
+
+
+
+
+
 def _get_question_category_and_direction(question: str):
     """ returns a tuple where t[0] is the scoring category and t[1] is the direction of the scoring
     """

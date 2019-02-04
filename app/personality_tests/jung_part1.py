@@ -1,8 +1,3 @@
-# @michelle
-# Docs say: Part 1 instruction were ambiguous resulting in inconsistently reversed item responses.
-# so skipping this for now
-
-
 def get_question_score_map_function(question:str):
     """returns a function tht takes in a student's answer to the above question and returns a score if appropriate"""
     def mapper(student_answer):
@@ -29,3 +24,36 @@ def get_question_score_map_function(question:str):
 
 def append_final_test_score(df,JUNG,column_list):
     pass
+
+# Makes lists |  Relies on memory,
+# Sceptical | Wants to believe,
+# Bored by time alone | Needs time alone,
+# Accepts things as they are | Unsatisfied with the way things are,
+# Keeps a clean room | just puts stuff where ever,
+# Thinks ""robotic"" is an insult | Strives to have a mechanical mind,
+# Energetic | Mellow,
+# Prefer to take multiple choice test | Prefer essay answers,
+# Chaotic | Organized,
+# Easily hurt | Thick-skinned,
+# Works best in groups | Works best alone,
+# Focused on the present | Focused on the future,
+# Plans far ahead | Plans at the last minute,
+# Wants people's respect | Wants their love,
+# Gets worn out by parties | Gets fired up by parties,
+# Fits in | Stands out,
+# Keeps options open | Commits,
+# Wants to be good at fixing things | Wants to be good at fixing people,
+# Talks more | Listens more,
+# When describing an event, will tell people what happened | When describing an event, will tell people what it meant,
+# Gets work done right away | Procrastinates,
+# Follows the heart | Follows the head,
+# Stays at home | Goes out on the town,
+# Wants the big picture | Wants the details,
+# Improvises | Prepares,
+# Bases morality on justice | Bases morality on compassion,
+# Finds it difficult to yell very loudly |  Yelling to others when they are far away comes naturally,
+# Theoretical | Empirical,
+# works hard |  plays hard,
+# uncomfortable with emotions |  values emotions,
+# Likes to perform in front of other people | Avoids public speaking,
+# Likes to know ""who?"", ""what?"", ""when?"" | Likes to know ""why?"",

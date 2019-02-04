@@ -1,3 +1,11 @@
+
+# def append_human_friendly_score():
+#     very high: >= 63
+# above average: >= 55
+# below average: <= 39
+# very low: <31
+
+
 def get_question_score_map_function(question:str):
     """returns a function that takes in a student's answer to the above question and returns a score according to the Toronto Empathy Questionnaire
     """
