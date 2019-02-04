@@ -107,3 +107,4 @@ def main(sheet_name):
     append_all_human_friendly_scores(df)
     df.to_csv("gitignore/scored_answers.csv")
     return df
+
