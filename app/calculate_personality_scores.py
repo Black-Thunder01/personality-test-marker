@@ -1,4 +1,4 @@
-from .google_sheets import fetch_sheet 
+from .google_sheets import fetch_sheet
 from .personality_tests import baron_cohen,brs,dgs,ipip,jung_part1,jung_part2,teq
 import re
 
@@ -98,7 +98,7 @@ def main(sheet_name):
     df = fetch_sheet(sheet_name)
     score_all_answers(df)
     append_final_test_scores(df)
-    df.to_csv("gitignore/scored_answers.csv")
+    df.to_csv("data/processed/personality_scored_answers.csv")
     return df
 
 
@@ -115,6 +115,3 @@ def main(sheet_name):
 # for category in categories:
 #     df[f"{IPIP}_"] = df[column_list].sum(axis=1)
 # df.to_csv("gitignore/scored_answers.csv")
-
-
-
