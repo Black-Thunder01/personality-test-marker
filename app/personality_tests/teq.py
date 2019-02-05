@@ -1,3 +1,9 @@
+
+
+
+
+
+
 def get_question_score_map_function(question:str):
     """returns a function that takes in a student's answer to the above question and returns a score according to the Toronto Empathy Questionnaire
     """
@@ -59,3 +65,25 @@ def _forward_mapper(student_answer):
 def append_final_test_score(df,TEQ,column_list):
     """once all the answers have individual scores, we add them up"""
     df[TEQ] = df[column_list].sum(axis=1)
+
+
+def _human_friendly_map_function(final_score):
+    if final_score >= 63:
+        return "very high"
+    if final_score >= 55:
+        return "above average"
+    if final_score <= 31:
+        return "very low"
+    if final_score <= 39:
+        return "below average"
+    return "average"
+
+def append_human_friendly_test_score(df,TEQ,column_list):
+    """
+    very high: >= 63
+    above average: >= 55
+    below average: <= 39
+    very low: <31
+    """
+    df[f"human_{TEQ}"] = df[TEQ].map(_human_friendly_map_function)
+

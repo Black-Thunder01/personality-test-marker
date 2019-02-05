@@ -1,4 +1,4 @@
-from .google_sheets import fetch_sheet
+from .google_sheets import fetch_sheet 
 from .personality_tests import baron_cohen,brs,dgs,ipip,jung_part1,jung_part2,teq
 import re
 
@@ -62,6 +62,8 @@ column_names = { # this will hold the names of all the columns we care about for
 
 
 def get_column_test_name_and_question(column:str):
+    """ figure out which test and specific question that the column belongs to. example return: ('TEQ',5)
+    """
     search = re.search("^Section (\d) of 6 \[(.*)\]$", column)
     if search:
         section = int(search[1])
@@ -75,7 +77,6 @@ def get_column_test_name_and_question(column:str):
         return (part_test_names[part],question)
     # it's an informative column, eg email address
     return None,None
-
 
 
 def score_all_answers(df):
@@ -94,24 +95,15 @@ def append_final_test_scores(df):
         personality_test_functionality[s].append_final_test_score(df,s,column_names[s])
 
 
+def append_all_human_friendly_scores(df):
+    for s in column_names:
+        personality_test_functionality[s].append_human_friendly_test_score(df,s,column_names[s])
+
+
 def main(sheet_name):
     df = fetch_sheet(sheet_name)
     score_all_answers(df)
     append_final_test_scores(df)
+    append_all_human_friendly_scores(df)
     df.to_csv("data/processed/personality_scored_answers.csv")
     return df
-
-
-
-
-
-
-
-
-# df = main("Applicant Personality Review (Dec 2018) (Responses)")
-
-
-# column_list = column_names[IPIP]
-# for category in categories:
-#     df[f"{IPIP}_"] = df[column_list].sum(axis=1)
-# df.to_csv("gitignore/scored_answers.csv")
