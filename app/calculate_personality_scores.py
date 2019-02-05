@@ -105,6 +105,5 @@ def main(sheet_name):
     score_all_answers(df)
     append_final_test_scores(df)
     append_all_human_friendly_scores(df)
-    df.to_csv("gitignore/scored_answers.csv")
+    df.to_csv("data/processed/personality_scored_answers.csv")
     return df
-
