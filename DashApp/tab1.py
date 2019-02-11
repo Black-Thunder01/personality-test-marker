@@ -9,7 +9,7 @@ import plotly.plotly as py
 import plotly.graph_objs as go
 
 # ///////////////////////////////////////////////////////////////////
-def UmuziTab1():
+def generalTab1():
     return  html.Div([
                 html.H3('Tab content 2'),
                 dcc.Graph(

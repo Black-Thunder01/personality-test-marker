@@ -27,11 +27,17 @@ def get_col(col):
 
 
 # Create bar-graph for our personality data.
-def create_bar_graph(df, col):
+def create_bar_graph(df, col, color='blue'):
     # Get key value pairs, key --> applicant responses and value --> counts of responses;
     keys = [k for k,v  in df[col].value_counts().items()];
     values = [v for k,v  in df[col].value_counts().items()];
-    data = [go.Bar(x=keys,y=values,text=keys,textposition = 'auto')]
+    data = [go.Bar(x=keys,y=values,text=keys,textposition = 'auto',
+                   marker=dict(
+        color=color,
+        line=dict(
+            color='rgb(8,48,107)',
+            width=1.5,
+        )))]
     # graph layout
     layout = go.Layout(
         title= get_col(col),
