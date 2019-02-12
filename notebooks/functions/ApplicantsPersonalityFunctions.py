@@ -47,9 +47,7 @@ def stacked_hist(df, frstCol, scndCol):
     
 #     set Data variable
     data = [First_column_trace, Second_column_trace]
-    layout = go.Layout(barmode='stack',yaxis=dict(title='Frequency'), legend=dict(orientation="h"),
-    bargroupgap=0.1
-    )
+    layout = go.Layout(barmode='stack',yaxis=dict(title='Frequency'), legend=dict(orientation="h"))
     fig = go.Figure(data=data, layout=layout)
 
     return py.iplot(fig, filename='stacked histogram')
