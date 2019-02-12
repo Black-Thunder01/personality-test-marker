@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 This repository contains the data for the Umuzi recruits and bootcampers under selection.
 
@@ -445,3 +446,6 @@ extraversion and low agreeableness, flag "high risk"
 
 ###Open Extended Jungian Type Scales 1.2
 No cut-off. Combine the four letters to get the personality type (e.g. ENTP)
+=======
+# personality-test-marker
+>>>>>>> 0e67526eafe79a60cf66190f08784326da14caf9
