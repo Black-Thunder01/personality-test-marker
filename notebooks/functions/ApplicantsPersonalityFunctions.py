@@ -1,9 +1,3 @@
-
-# coding: utf-8
-
-# In[1]:
-
-
 # Functions to apply on visualisations notebook
 # Import necessary libraries
 import plotly
@@ -13,25 +7,11 @@ import plotly.plotly as py
 import plotly.graph_objs as go
 
 
-# In[2]:
-
-
-# Fuction to split column question to main question string
-def get_col(col):
-    dirt, semi_col = col.split('[')
-    fin_col, dirt = semi_col.split(']')
-    return fin_col
-
-
-# In[3]:
-
-
-# Create bar-graph for our personality data.
-def create_bar_graph(df, col, color='blue'):
-    # Get key value pairs, key --> applicant responses and value --> counts of responses;
-    keys = [k for k,v  in df[col].value_counts().items()];
-    values = [v for k,v  in df[col].value_counts().items()];
-    data = [go.Bar(x=keys,y=values,text=keys,textposition = 'auto',
+# Create histogram for our personality data.
+def create_histogram(df, col, color='blue'):
+    
+    values = [v for k,v  in df[col].items()];
+    data = [go.Histogram(x=values,
                    marker=dict(
         color=color,
         line=dict(
@@ -40,7 +20,7 @@ def create_bar_graph(df, col, color='blue'):
         )))]
     # graph layout
     layout = go.Layout(
-        title= get_col(col),
+        title= col,
         yaxis=dict(
             title='Frequency of Applicants',
             titlefont=dict(
@@ -52,5 +32,5 @@ def create_bar_graph(df, col, color='blue'):
 
     # Show plot.
     fig = go.Figure(data=data, layout=layout)
-    return py.iplot(fig, filename='share_excitement-bar')
+    return py.iplot(fig, filename=col)
 
