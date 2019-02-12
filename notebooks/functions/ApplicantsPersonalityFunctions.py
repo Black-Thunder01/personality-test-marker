@@ -40,10 +40,10 @@ def create_histogram(df, col, color='blue'):
 # Create stacked and normalized histogram
 def stacked_hist(df, frstCol, scndCol):
 #     first trace
-    First_column_trace = go.Histogram(x=df[frstCol],histnorm='probability', name=frstCol);
+    First_column_trace = go.Histogram(x=df[frstCol],histnorm="percent", name=frstCol);
     
 #     Second trace
-    Second_column_trace = go.Histogram(x=df[scndCol],histnorm='probability', name=scndCol);
+    Second_column_trace = go.Histogram(x=df[scndCol],histnorm="percent", name=scndCol);
     
 #     set Data variable
     data = [First_column_trace, Second_column_trace]
